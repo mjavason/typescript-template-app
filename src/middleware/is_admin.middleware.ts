@@ -16,7 +16,7 @@ import {
 const isAdmin = async (req: Request, res: Response, next: NextFunction) => {
   const user = res.locals.user;
   const loggedUser = await demoService.showDemo(res.locals.user);
-  if (loggedUser && loggedUser.userType !== 'admin') {
+  if (loggedUser && loggedUser.user_type !== 'admin') {
     return AccessTokenErrorResponse(res, 'UnAuthorized');
   }
   return next();

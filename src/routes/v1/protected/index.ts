@@ -5,7 +5,7 @@ const router = Router();
 
 
 router.use(isAuth);
-router.use('/demo', demoRoute);
+router.use('/demoprotected', demoRoute);
 
 
 export default router;
