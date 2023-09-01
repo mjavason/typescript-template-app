@@ -71,3 +71,11 @@ export const LINKS = {
     ZOOM: 'https://zoom.us/j/9999999999',
 }
 
+export const DATABASES = {
+    USER: "User",
+    USER_LAND_RECORD: "user_land_record",
+    SITE_INSPECTION: "site_inspection",
+    SITE_INSPECTION_COMPUTED: "site_inspection_computed",
+    APPOINTMENT: "appointment",
+    APPOINTMENT_VISITOR:"appointment_visitor"
+};
