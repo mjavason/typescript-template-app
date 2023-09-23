@@ -7,8 +7,9 @@ const logger = winston.createLogger({
   defaultMeta: { service: 'template-service' },
   transports: [
     new winston.transports.Console(),
-    // new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    // new winston.transports.File({ filename: 'combined.log' })
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'info.log', level: 'info' }),
+    new winston.transports.File({ filename: 'combined.log' })
   ],
 });
 
