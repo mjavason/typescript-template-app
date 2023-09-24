@@ -2,11 +2,13 @@ import dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
 // export const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
 export const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
-export const DB_CONNECTION_STRING = process.env.MONGODB_URL || 'mongodb://localhost:27017';
+export const DB_NAME = process.env.MONGO_DB_NAME || 'test';
+export const DB_CONNECTION_STRING = process.env.MONGO_DB_URL + DB_NAME || 'mongodb://localhost:27017/' + DB_NAME;
 export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || 'access-token-secret';
 export const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || 'refresh-token-secret';
 export const JWT_SECRET = process.env.JWT_SECRET || 'jwt-secret';
 export const APP_NAME = process.env.APP_NAME || 'app';
+
 
 export const STATUS_CODES = {
     SUCCESS: '10000',
@@ -24,7 +26,7 @@ export const MESSAGES = {
     SUCCESSFUL: "Successful",
     ASSIGNED: "Resource assignment completed successfully",
     NOT_FOUND: "Sorry, the requested resource was not found",
-    DEFAULT: "We've received your request and are processing it",
+    DEFAULT: "We've received your request and you've received ours",
     ALREADY_EXISTS: "This resource already exists",
     USER_ALREADY_EXISTS: "The user already exists",
     AUTH_DEFAULT: "Authentication is required for this action",

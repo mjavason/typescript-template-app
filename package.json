@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start:local": "nodemon --exec ts-node ./build/server.js",
-    "start": "node --loader ts-node/esm ./build/src/server.js",
+    "build": "tsc -p .",
+    "start": "node ./build/server.js",
     "dev": "nodemon ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,6 +28,7 @@
     "mongoose": "^7.5.0",
     "nodemon": "^3.0.1",
     "winston": "^3.10.0",
+    "zod": "^3.22.2",
     "zod-express-middleware": "^1.4.0"
   },
   "devDependencies": {
