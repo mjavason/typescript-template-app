@@ -1,16 +1,20 @@
-import Jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../constants';
 
-async function signJwt(payload: string | Buffer | object) {
-  return Jwt.sign(payload, JWT_SECRET);
+async function signJwt(payload: object, signature = JWT_SECRET, expiresIn?: string | number) {
+  const options: jwt.SignOptions = {
+    expiresIn, // Optional expiry parameter
+  };
+
+  return await jwt.sign(payload, signature, options);
 }
 
-function verifyJwt(token: string) {
+async function verifyJwt(token: string, signature = JWT_SECRET) {
   try {
-    const decoded = Jwt.verify(token, JWT_SECRET);
+    const decoded = await jwt.verify(token, signature);
     return decoded;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return false;
   }
 }
