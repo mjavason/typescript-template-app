@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { demoService } from '../services';
 import {
   AuthFailureResponse,
   NotFoundResponse,
@@ -16,9 +15,10 @@ import { MESSAGES, STATUS_CODES } from '../constants';
 
 const isAdmin = async (req: Request, res: Response, next: NextFunction) => {
   const user = res.locals.user;
-  // const loggedUser = await demoService.getUserInfo(res.locals.user);
+
   const loggedUser = user;
   if (loggedUser && loggedUser.role !== 'admin') {
+    console.log('Invalid login details, not admin');
     return AuthFailureResponse(res);
   }
   return next();
